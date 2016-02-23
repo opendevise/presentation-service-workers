@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080" class="edge-3g">
+<style>
+.edge-3g .s0{fill:#ccc}
+.edge-3g .s1{fill:#ff2d52}
+svg.active:root .s2,.bespoke-active .edge-3g .s2{animation:3s linear 0s infinite alternate edge-3g-flux}
+@keyframes edge-3g-flux{0%,14.99%{opacity:1}15%,84.99%{opacity:0}85%,100%{opacity:1}}
+</style>
+<g font-family="sans-serif" font-size="92.633" font-weight="700">
+<path class="s0" d="M1091.203 408.78l-47.312 47.314V671.22h47.313V408.78z"/>
+<path class="s0" d="M1017.266 482.72l-43.97 43.968v144.53h43.97v-188.5z"/>
+<path class="s0" d="M946.672 553.313l-43.97 43.968v73.94h43.97V553.312z"/>
+<path class="s1" d="M876.078 623.938l-47.28 47.28h47.28v-47.28z"/>
+<text x="1172.012" y="456.712" fill="#ff2d52" transform="matrix(.97802 0 0 .97802 -319.904 28.876)">
+<tspan>3G</tspan>
+</text>
+<g class="s2">
+<path class="s1" d="M946.672 553.313l-43.97 43.968v73.94h43.97V553.312z"/>
+<path fill="#fff" d="M800.04 387.036h165.666v113.137H800.04z"/>
+<text x="1172.012" y="456.712" fill="#ff2d52" transform="matrix(.97802 0 0 .97802 -319.904 28.876)">
+<tspan>E</tspan>
+</text>
+</g>
+</g>
+</svg>
