@@ -1,0 +1,1048 @@
+= [.context.line]#Du Web hors-ligne et plus si affinités avec les# [.subject.line]#[.word]*Service* [.word]*Workers*#
+Hubert Sablonnière <http://hsablonniere.com>
+2015-09-09
+:copyright: 2015-2016 Hubert Sablonnière, Dan Allen
+:twitter: @hsablonniere
+:avatar: hsablonniere-avatar.png
+:company: INEAT Conseil
+:hashtag: #ServiceWorker
+:lang: fr
+:imagesdir: images
+:icons: font
+:!sectids:
+:source-highlighter: highlight.js
+:source-language: javascript
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=title]
+****
+
+== !
+image::jurassic-park-moz.png#jurassic-park.jpg[Jurassic Park roar,1920,1080,role=cover,opts=flux]
+audio::trex.ogg[alt=T. rex growl]
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=jurassic-park]
+****
+
+== !
+.Moi en 1993, enfin presque...
+image::ron.jpg[Ron Weasley,1024,768,role=cover dark]
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=moi-en-1993]
+****
+
+== !
+.Le bon vieux "`Marchand de journaux`"
+image::kiosque.jpg[Marchand de journaux,3872,2592,role=cover dark]
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=bon-vieux-md-de-journaux]
+****
+
+== !
+// FIXME probably should be a dlist
+[%fit%build]
+* Maison *⇄* Md. de journaux : *1*
+* Transport : *Voiture*
+* Temps : *~20 minutes*
+* Prix : *5 francs*
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=par-voiture]
+****
+
+== !
+image::web-sexy.png[Web is so sexy,1920,1080,role=cover]
+
+[.cue]
+****
+include::speaker-notes.adoc[tag=web-sexy]
+****
+
+== !
+image::sens-critique.png[Séances de Jurassic World,1600,900,role=cover]
+
+== !
+image::vo-vf.png[VO ou VF?,1366,768,role=cover]
+
+== !
+// FIXME probably should be a dlist
+[%fit%build]
+* Client *⇄* Serveur : *~20*
+* Transport : *Internet*
+* Temps : *~1 SECONDE*
+* Prix : *0 €*
+
+[.remark%fit]
+== Web *>* Marchand de journaux
+
+[.remark%fit]
+== Vraiment *?*
+
+[.remark%slice%fit]
+== Deuxième ciné{sp} *dans la même semaine*
+
+== !
+[%fit%build.fade]
+* Maison ⇄ Md. de journaux : *0*
+* Accès *Instantané*
+* Le journal est *déjà* à la maison
+
+== !!
+
+== !
+image::aller-retour-o.svg[Aller/retour,1920,1080,role=cover,opts=inline]
+
+== !
+image::kiosque.jpg[Marchand de journaux,3872,2592,role=cover]
+
+== !
+image::smartwatch.jpg[Smartwatch,940,580,role=cover]
+
+== !
+image::speedtest-nexus-5.png[Nexus 5 speed test,1920,1080,role=cover]
+
+== !
+image::airplane-vs-full-internet-o.svg[D'avion vs d'internet complet,1920,1080,role=cover]
+
+== !
+.N'ayez confiance en personne.
+image::wifi-4g-o.svg[Unstable WiFi/4G,1920,1080,role=cover,opts=interactive]
+
+== !
+image::nexus-5-quota.png[Nexus 5 quota,1920,1080,role=cover]
+
+== !
+image::kitchen-wifi-o.svg[Kitchen WiFi,1920,1080,role=cover,opts=inline]
+
+== !
+image::hishe-villain-bar.jpg[Bar debate,1500,844,role=cover]
+
+== !
+image::toilet-wifi-o.svg[Toilet stall out of WiFi range,1920,1080,role=cover,opts=inline]
+
+//== !
+//[.definition]
+//Presqu'Internet:: Un forfait *presque(TM)* tout le temps rapide.
+
+[.definition]
+== [.word]#Presqu`'#[.word]##Internet##
+Un forfait *presque(TM)* tout le temps rapide.
+
+== !
+image::edge-3g-o.svg[Fluctuating between Edge and 3G,role=cover,opts=interactive]
+
+== !
+.page Web qui charge
+image::blank.svg[Blank page,1920,1080,role=cover,opts=inline]
+
+== !
+image::dinosaur.png[Chrome offline,1920,1080,role=cover]
+
+== !
+image::dinosaur-ff-nodino.png#dinosaur-ff.png[Firefox offline,1600,899,role=cover build-items]
+
+[.topic%fit]
+== Offline-*first*
+
+== !
+.offlinefirst.org
+image::offline-first.png[Offline first,1920,1080,role=cover]
+
+[.remark%slice%fit]
+== La connexion est{sp} une *fonctionnalité*
+
+[.remark%slice%fit%build.fade]
+== Soulager{sp} l'*utilisateur*{sp} sa *batterie*{sp} son *forfait* de données{sp} vos *serveurs*
+
+== !
+image::pocket.png[Pocket,1586,896,role=cover]
+
+== !
+[%fit%build.fade]
+* Mobile : Natif**{asterisk}** *>* Web**{asterisk}**
+* Connectivité
+* Push *&* notifications
+* Intégration avec l'*os*
+* **Perf**ormances
+
+== !
+.Allociné (sans connexion)
+image::offline-allocine.png[Allociné sans connexion,1920,1080,role=cover]
+
+== !
+.Feedly (sans connexion)
+image::offline-feedly.png[Feedly sans connexion,1920,1080,role=cover]
+
+== !
+.Twitter (sans connexion)
+image::offline-twitter.png[Twitter sans connexion,1920,1080,role=cover]
+
+== !!
+
+[.topic%fit]
+== **App**lication *Cache*
+
+== !
+.Support AppCache
+// NOTE opts=interactive is used here to remedy images sometimes not appearing
+image::support-appcache-o.svg["Support AppCache - Safari 4, IE 10, Firefox 3.5, Opera 11.5, Chrome 4",1920,1080,role=cover,opts=interactive]
+
+== !
+.index.html
+[,html]
+----
+<!-- index.html -->
+<html manifest="/manifest.appcache">
+<!-- ... -->
+----
+
+== !
+.manifest.appcache
+[,text,subs=+quotes,build-lines=1..5;6..13;14..16;17..18]
+----
+[.hljs-comment]### manifest.appcache##
+
+[.hljs-section]#CACHE MANIFEST#
+[.hljs-comment]### version 1##
+
+[.hljs-section]#CACHE:#
+index.html
+page-1.html
+page-2.html
+index.css
+index.js
+mon-logo.jpg
+
+[.hljs-section]#NETWORK:#
+*
+
+[.hljs-section]#FALLBACK:#
+list.html no-connexion.html
+----
+
+== !
+.AppCache : premier chargement
+image::appcache-1-o.svg[AppCache : premier chargement,1920,1080,role=cover,opts=interactive]
+
+== !
+.AppCache : autres chargements
+image::appcache-2-o.svg[AppCache : autre chargements,1920,1080,role=cover,opts=interactive]
+
+== !
+.AppCache : vérification du manifest
+image::appcache-3-o.svg[AppCache : vérification du manifest,1920,1080,role=cover,opts=interactive]
+
+== !
+.manifest.appcache
+[,text,subs=+quotes,build-lines=1..5;6..12]
+----
+[.hljs-comment]### manifest.appcache##
+
+[.hljs-section]#CACHE MANIFEST#
+[.hljs-comment]### version 2## #<1>
+
+[.hljs-section]#CACHE:#
+index.html
+page-1.html
+page-2.html
+index-22db3627.css #<2>
+index.js
+mon-logo.jpg
+----
+<1> incrémentation de la version
+<2> OU ajout d'un hash
+
+== !
+image::appcache-4-o.svg[AppCache : vérification du manifest oui et mise à jour du fichier,1920,1080,role=cover,opts=inline]
+
+== !
+.On reste sur la version d'avant
+image::appcache-5-o.svg[On rest sur la version d'avant,1920,1080,role=cover,opts=interactive]
+
+== !
+----
+var appCache = window.applicationCache;
+
+appCache.addEventListener('updateready', function (event) {
+
+    if (confirm('Voulez-vous la nouvelle version ?')) {
+        window.location.reload();
+    }
+});
+----
+
+== !
+[%fit%build.fade]
+* [.del]#Lister tout#
+* [.del]#Ajouter unitairement#
+* [.del]#Mettre à jour unitairement#
+* [.del]#Supprimer unitairement#
+
+== !
+image::tuco.png[Tuco,1920,812,role=cover]
+
+== !
+image::good-ugly.png[The Good & the Ugly,1920,816,role=cover]
+
+== !
+image::ugly-gun-good.jpg[The Ugly sticking up the Good,1920,1080,role=cover]
+
+== !
+image::appcache-douchebag.png[Application Cache is a Douchebag article,1920,1080,role=cover]
+
+== !
+.devdocs.io
+image::devdocs.png[devdocs.io,1600,900,role=cover]
+
+== !!
+
+== !
+"Quand un homme a faim, mieux vaut lui apprendre à pêcher que de lui donner un poisson."
+-- Confucius
+
+== !
+[%fit%build.fade]
+* API *haut* niveau
+* API *bas* niveau
+
+== !
+image::fishing.jpg[Fishing rod,1920,1080,role=cover]
+
+[.topic%fit]
+== Service *Workers*
+
+== !
+.\http://www.w3.org/TR/service-workers
+image::sw-spec.png[Service Worker spec,1216,1071,role=url top cover]
+
+[.remark%slice%fit%build]
+== *Proxy* programmable{sp} dans le *navigateur*{sp} entre vos *pages*{sp} et votre *serveur*{sp} qui a son propre *cache*
+
+== !
+image::sw-explained-o.svg[Service Workers explained,1920,1080,role=cover,opts=inline]
+
+[.remark%slice%fit%build]
+== HTTP**S**{sp} `https**://**sousdomaine**.**domaine**:**port`
+
+== !
+.\https://letsencrypt.org
+image::lets-encrypt.png[Let's encrypt,1584,895,role=url cover]
+
+== !
+// FIXME listing captions should be done using block title (like this one) instead of in situ
+.page.js
+[build-lines=1..2;3;4;5..7;8..11]
+----
+// page.js
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function (registration) {
+          console.log('SW OK ;->', registration.scope);
+      })
+      .catch(function (err) {
+          console.log('SW KO :-<', err);
+      });
+}
+----
+
+[.remark%fit]
+== *Promises* JavaScript
+
+== !
+[subs=+attributes]
+----
+// sw.js (thread indépendant de la page)
+
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js (pas d'objet global window)
+
+console.log(typeof window === 'undefined'); // true
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+self.addEventListener('fetch', function (event) {});
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+self.addEventListener('fetch', function (event) {
+    console.log('request', event.request.url);
+});
+{zwsp}
+----
+
+== !
+----
+// sw.js (réponse générée)
+
+self.addEventListener('fetch', function (event) {
+    console.log('request', event.request.url);
+    event.respondWith(new Response('Hello World!'));
+});
+----
+
+[.topic%slice%fit]
+== Nouvelle *API* de stockage{sp} le *cache*
+
+== !
+[%fit%build.fade]
+* Map de *requête*/*réponse*
+* API cache *!=* cache HTTP
+
+== !
+----
+// sw.js (réponse depuis le cache)
+
+self.addEventListener('fetch', function (event) {
+
+
+
+
+
+        event.respondWith(caches.match(event.request));
+
+});
+----
+
+== !
+----
+// sw.js (réponse depuis serveur ou depuis le cache)
+
+self.addEventListener('fetch', function (event) {
+
+    if (event.request.url.match('/api') {
+        event.respondWith(/* avec le serveur */);
+    }
+    else {
+        event.respondWith(caches.match(event.request));
+    }
+});
+----
+
+== !!
+
+[.proper.remark%fit]
+== **X**ML**H**ttp**R**equest
+audio::buzzer.ogg[alt=Wrong answer buzzer]
+
+== !
+[build-lines=1..5;6..7;8;9..12;13..15;16]
+----
+// page.js
+
+var url = '/api/conferences';
+
+var xhr = new XMLHttpRequest();
+var async = false; //<1>
+xhr.open('GET', url, async);
+xhr.responseType = 'json';
+xhr.onload = function () {
+    var conferences = xhr.response;
+    console.log('confs', conferences);
+};
+xhr.onerror = function () {
+    console.log('error');
+};
+xhr.send();
+----
+<1> appel synchrone bloquant :-(
+
+[.topic%slice%fit]
+== Nouvelle *API* de requête{sp} `*fetch*()`
+
+== !
+.\http://fetch.spec.whatwg.org
+image::fetch-spec.png[Fetch spec,1004,1037,role=url top cover]
+
+== !
+[build-lines=1..5;6..8;9..11;12..14]
+----
+// page.js ou sw.js
+
+var url = '/api/conferences';
+
+fetch(url) //<1>
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (conferences) {
+      console.log('confs', conferences);
+  })
+  .catch(function (error) {
+      console.log('error', error);
+  });
+----
+<1> string ou objet Request
+
+== !
+----
+// page.js ou sw.js
+
+var url = '/api/conferences';
+
+fetch(url, { method: 'POST' }) //<1>
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (conferences) {
+      console.log('confs', conferences);
+  })
+  .catch(function (error) {
+      console.log('error', error);
+  });
+----
+<1> config de la requête
+
+== !
+----
+// sw.js (réponse depuis serveur ou depuis le cache)
+
+self.addEventListener('fetch', function (event) {
+
+    if (event.request.url.match('/api') {
+        event.respondWith(fetch(event.request));
+    }
+    else {
+        event.respondWith(caches.match(event.request));
+    }
+});
+----
+
+== !!
+
+[.topic%slice%fit]
+== *Cycle* de vie{sp} d'un *Service Worker*
+
+== !
+----
+// page.js
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(onSuccess)
+        .catch(onError);
+}
+----
+
+// TODO the following sequence is a perfect case for build with explicit ordering
+== !
+[subs=+attributes]
+----
+// sw.js
+
+
+
+
+
+
+
+
+
+self.addEventListener('install', function (event) {
+    // le service worker s'installe
+
+
+
+
+});
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+var CURRENT_CACHE = 'mon-site-v1',
+    urlsToCache = [
+        '/',
+        '/main.css',
+        '/index.js',
+        '/logo.jpg'
+    ];
+
+self.addEventListener('install', function (event) {
+    // le service worker s'installe
+
+
+
+
+});
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+var CURRENT_CACHE = 'mon-site-v1',
+    urlsToCache = [
+        '/',
+        '/main.css',
+        '/index.js',
+        '/logo.jpg'
+    ];
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(
+        // attend avant qu'une promise se résolve
+
+
+    );
+});
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+var CURRENT_CACHE = 'mon-site-v1',
+    urlsToCache = [
+        '/',
+        '/main.css',
+        '/index.js',
+        '/logo.jpg'
+    ];
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(
+        caches.open(CURRENT_CACHE)
+
+
+    );
+});
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+var CURRENT_CACHE = 'mon-site-v1',
+    urlsToCache = [
+        '/',
+        '/main.css',
+        '/index.js',
+        '/logo.jpg'
+    ];
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(
+        caches.open(CURRENT_CACHE).then(function (cache) {
+            return cache.addAll(urlsToCache);
+        })
+    );
+});
+
+
+
+{zwsp}
+----
+
+== !
+[subs=+attributes]
+----
+// sw.js
+
+var CURRENT_CACHE = 'mon-site-v1',
+    urlsToCache = [
+        '/',
+        '/main.css',
+        '/index.js',
+        '/logo.jpg'
+    ];
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(
+        caches.open(CURRENT_CACHE).then(function (cache) {
+            return cache.addAll(urlsToCache);
+        })
+    );
+});
+
+self.addEventListener('activate', function (event) {
+    // le SW essaye de s'activer
+});
+----
+
+== !!
+
+== !
+image::sw-lifecycle-o.svg[Cycle de vie d'un Service Worker,1920,1080,role=cover,opts=inline]
+
+== !
+// TODO combine image with previous one (revealing figcaption on final step only)
+.Le nouveau SW prend le contrôle
+image::sw-lifecycle-final-o.svg[Cycle de vie d'un Service Worker,1920,1080,role=cover,opts=interactive]
+
+== !!
+
+== !
+----
+// page.js
+
+navigator.serviceWorker.register('/sw.js')
+    .then(function (registration) {
+
+        // un objet avec ce que je veux dedans
+        registration.active.postMessage({
+            command: 'forceUpdate',
+            foobar: 42
+        });
+    });
+----
+
+== !
+----
+// sw.js
+
+self.addEventListener('message', function (event) {
+
+    if (event.data.command === 'forceUpdate') {
+        // mettre à jour le cache kivabien avec le serveur
+    }
+});
+----
+
+== !
+----
+// sw.js
+
+self.addEventListener('fetch', function (event) {
+
+    if (event.request.url.match('/logout') {
+
+        // prevenir tous les onglets de la déconnexion
+
+
+
+
+
+
+
+    }
+});
+----
+
+== !
+----
+// sw.js
+
+self.addEventListener('fetch', function (event) {
+
+    if (event.request.url.match('/logout') {
+
+        clients.matchAll().then(function (windowClients) {
+
+
+
+
+
+
+        });
+    }
+});
+----
+
+== !
+----
+// sw.js
+
+self.addEventListener('fetch', function (event) {
+
+    if (event.request.url.match('/logout') {
+
+        clients.matchAll().then(function (windowClients) {
+
+            windowClients.forEach(function (client) {
+                client.postMessage({
+                    command: 'logout'
+                });
+            });
+        });
+    }
+});
+----
+
+== !
+----
+// page.js
+
+var sw = navigator.serviceWorker;
+sw.addEventListener('message', function (event) {
+
+    if (event.data.command === 'logout') {
+
+        // rediriger vers l'accueil ou le login
+        // vider le localStorage
+        // cacher l'avatar
+        // ...
+    }
+});
+----
+
+[.remark%slice%fit]
+== *Debug* ?{sp} *Devtools* ?
+
+== !
+.\https://nextspeaker.io
+image::firefox-devtools-1.png[Next Speaker,1600,899,role=url cover]
+
+== !
+.about:serviceworkers
+image::firefox-devtools-2.png[About Service Workers,1599,899,role=url cover]
+
+== !
+.chrome://serviceworker-internals
+image::chrome-devtools-1.png[Chome Service Worker internals,1599,899,role=url cover]
+
+== !
+image::chrome-devtools-2.png#chrome-devtools-3.png,chrome-devtools-4a.png,chrome-devtools-4b.png,chrome-devtools-4a.png,chrome-devtools-5.png,chrome-devtools-6.png,chrome-devtools-7.png[Chrome DevTools,1600,900,role=cover build-items]
+
+== !
+image::chrome-devtools-8.png[Chrome DevTools debug,1600,900,role=cover]
+
+== !
+image::chrome-devtools-9.png[Chrome DevTools debug,1600,900,role=cover]
+
+== !!
+
+[.remark%fit]
+== C'est pour qui *?*
+
+[.left.remark%slice]
+== **S**ingle{sp} **P**age{sp} **A**pplication
+
+== !
+image::nextspeaker-io.png[Next Speaker,1600,900,role=cover]
+
+[.remark%slice%fit]
+== *Server* side{sp} rendering
+
+== !
+image::wiki-jurassic-park-43.png[Jurassic Park sur Wikipedia,1152,864,role=cover]
+
+== !
+.\https://wiki-offline.jakearchibald.com
+image::offline-wikipedia.png[Wikipedia Offline,1920,1080,role=url cover]
+
+[.remark%slice%fit]
+== *Service Worker* side{sp} rendering
+
+== !
+image::css-pour-les-nuls-43.png#css-pour-les-nuls-window.png[CSS pour les nuls,1152,864,role=cover build-items]
+
+== !
+image::bpg2jpg.png[BPG2JPG polyfill demo,1600,900,role=cover]
+
+[.remark%slice%fit]
+== *La* bonne{sp} recette
+
+== !
+image::offline-cookbook.png[Offline cookbook,1600,900,role=cover]
+
+[.remark%fit]
+== Ça marche *où ?*
+
+== !
+// NOTE if images aren't appearing, add opts=interactive
+image::support-sw-o.svg["Support Service Worker - Chrome & Opera (stable) < 100%, Firefox (nightly) < 100%, IE under consideration, Safari ???",1920,1080,role=cover]
+
+== !
+image::isserviceworkerready.png[Is Service Worker ready?,1582,899,role=cover]
+
+[.remark%slice%fit%build]
+== *Pas de polyfill*{sp} mais les *helpers* arrivent
+
+== !
+image::lib-sw-toolbox.png[sw-toolbox project,1583,802,role=cover]
+
+== !
+image::lib-serviceworkerware.png[serviceworkerware project,1584,794,role=cover]
+
+== !
+image::lib-sw-precache.png[sw-precache project,1584,793,role=cover]
+
+== !
+image::lib-upup.png[UpUp project,1583,896,role=cover]
+
+== !
+image::escalator.jpg[Escalator,3486,2269,role=cover]
+
+[.remark]
+== Natif *vs.* Web
+
+== !
+image::nextspeaker-mobile-4-o.svg[Next Speaker mobile desktop icon,1920,1080,role=cover]
+
+== !
+image::nextspeaker-iphone.jpg[Next Speaker iPhone,390,693,role=contain]
+
+== !
+image::nextspeaker-mobile-1-o.svg[Next Speaker mobile site,1920,1080,role=cover]
+
+== !
+image::nextspeaker-mobile-2-o.svg[Ajouter à l'écran d'accueil Chrome,1920,1080,role=cover,opts=interactive]
+
+== !
+image::nextspeaker-mobile-3-o.svg[Ajouter à l'écran d'accueil Firefox,1920,1080,role=cover]
+
+== !
+image::nextspeaker-mobile-4-o.svg[Next Speaker mobile desktop icon,1920,1080,role=cover]
+
+== !
+image::nextspeaker-mobile-5-o.svg[Next Speaker mobile full screen,1920,1080,role=cover]
+
+[.topic%slice%fit]
+== *Manifest*{sp} for a **web app**lication
+
+== !
+.\http://www.w3.org/TR/appmanifest
+image::manifest-spec.png[Manifest spec,1065,899,role=url top cover]
+
+== !!
+
+== !
+[build-lines=1..4;5..13;14;15..16;17..19]
+----
+// manifest.json
+{
+    "short_name": "Next Speaker",
+    "name": "Next Speaker, programme des conférences",
+    "icons": [
+        {
+            "src": "launcher/next-speaker-2x.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "density": "2.0"
+        },
+        /* ... */
+    ],
+    "start_url": "index.html",
+    "display": "standalone", //<1>
+    "orientation": "portrait",
+    "background_color": "#F00F00"
+    "theme_color": "#3080BB"
+}
+----
+<1> pas de barres navigateur
+
+== !
+// TODO we can combine the next two images if we can trigger an animation on click
+image::nextspeaker-mobile-6-o.svg[Ajouter à l'écran bouton,1920,1080,role=cover]
+
+== !
+image::nextspeaker-mobile-6-o.svg[Ajouter à l'écran bouton,1920,1080,role=cover,opts=interactive]
+
+// TODO dot alignment should be applied dynamically
+:topic: pass:c,a,q[La *suite*{sp} \
+...*push* & *notifications*{sp} \
+........*streaming* des résponses{sp} \
+........................*synchronisation*{sp} \
+...................................*geofencing*{sp} \
+...............................................................*( alarmes )*]
+[.topic%slice%fit%build]
+== {topic}
+
+== !
+[%fit%build]
+* [.del]#Excuses techniques#
+* *User* experience
+* Synchronisation des *données*
+* Résolutions des *conflits*
+
+[.recap]
+== !
+[%build.fade]
+* AppCache = Tout pourri
+* SW = Prometteur ;-)
+* Offline-first Web
+* +==> Natif / Web <==+
+* Utilisateur "`Presqu'Internet`"
+
+== !
+image::dinosaur-ff.png[Firefox offline,1600,899,role=cover]
+
+[.topic%fit]
+== *Merci* ;-)
+[.credits%hardbreaks,subs=-replacements]
+le "`super`" public ...................................................... Vous
+l'anecdote des toilettes ........................................................... Jake Archibald
+les idées pour les schémas ......................................................... Jake Archibald
+les articles intéressants .......................................................... Jake Archibald
+les articles intéressants .......................................................... Ben Kelly
+les articles intéressants .......................................................... Matt Gaunt
+les talks qui m'ont inspirés ....................................................... Jake Archibald
+les talks qui m'ont inspirés ....................................................... Alex Russel
+les icônes des schémas ............................................................. TheNounProject
+
+[.closing]
+== [.line.context]#Avez vous des# [.line.subject]#[.word]*Questions ?*#
+[pass,subs=+attributes]
+<script id="author-block-cloner">
+window.addEventListener("DOMContentLoaded", function cloneAuthorBlock() {
+  var footer = document.querySelector(".bespoke-slide.title footer").cloneNode(true);
+  var url = footer.querySelector(".url");
+  url.innerText = "{hashtag}";
+  url.classList.remove("url");
+  var target = document.getElementById("author-block-cloner");
+  target.parentNode.replaceChild(footer, target);
+  removeEventListener("DOMContentLoaded", cloneAuthorBlock);
+}, false);
+</script>
+
+== !
+[%fit]
+* *À suivre :*
+* @jaffathecake - @slightlylate
+* @wanderview - @annevk
+* @service_workers - @domenic
+
+//[.topic%slice%fit]
+//== *Web* workers *?*{sp} *Shared* workers *?*{sp} *Service* workers *?*

@@ -1,0 +1,486 @@
+@import "./variables"
+@import "./fonts.css"
+@import "normalizecss/normalize.css"
+
+*, ::before, ::after { box-sizing: inherit }
+
+html
+  box-sizing border-box
+  font-size 16px // normalize the base font size (at least for testing)
+  quotes $sym-dblquote-left $sym-dbl-quote-right
+  &:lang(fr)
+    quotes $sym-guillemet-left $sym-guillemet-right
+
+aside[role=note] { display: none }
+figure { margin: 0 }
+img { vertical-align: middle }
+p, li { line-height: 1.6 }
+
+.deck
+  background-color $color-surface
+  font-family Raleway, sans-serif
+  font-size rem-calc(55px)
+  line-height 1.25
+  color $color-text
+  font-feature-settings "kern" 1
+  text-rendering optimizeLegibility
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  // Hide deck and slide content until Bespoke.js classes have been added
+  &:not(.bespoke-parent), section:not(.bespoke-slide)
+    display none
+
+.bespoke-parent, .bespoke-scale-parent
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+
+.bespoke-parent
+  overflow hidden // QUESTION why not on .deck?
+
+.bespoke-scale-parent, .bespoke-slide, .bespoke-slide-canvas
+  pointer-events none
+
+//.bespoke-slide, .bespoke-slide-canvas
+.bespoke-slide
+  background-color $color-canvas
+  position absolute
+  top 50%
+  left 50%
+  width $slide-width
+  margin-left -(@width / 2)
+  height $slide-height
+  margin-top -(@height / 2)
+
+.bespoke-slide
+  overflow hidden
+  opacity 0 // force opacity to start at 0 to avoid transition on load when using bespoke-scale
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  //&:not(.notransition)
+  //  transition opacity 200ms ease-in-out
+
+.bespoke-active
+  pointer-events auto
+  opacity 1
+  z-index 1 // Webkit requires z-index to be 1 for elements to receive focus (may no longer apply)
+  //&:not(.notransition)
+  //  transition-delay 200ms
+
+.bespoke-bullet-inactive
+  visibility hidden
+
+.fade .bespoke-bullet-active:not(.bespoke-bullet-current)
+  opacity 0.1
+
+.vanish  .bespoke-bullet-active:not(.bespoke-bullet-current)
+  opacity 0
+
+.bespoke-slide
+  &.title, &.closing, &.definition
+    background #141414 url(../images/sky.jpg) no-repeat
+    background-position 50% 50%
+    background-size cover
+    text-shadow #000 0 0 4rem
+
+.bespoke-slide
+  &.title, &.closing
+    justify-content flex-start
+    span.line
+      display block
+      &.context
+        color $color-inverse
+        font-family "Pontano Sans", sans-serif
+        font-size rem-calc(45px)
+        margin-top 1em
+        &::after // TODO make this a mixin
+          display block
+          content ""
+          border-top 2px solid $color-inverse
+          border-bottom 2px solid $color-inverse
+          height 8px
+          width rem-calc(600px)
+          margin 3rem auto 2.75rem auto
+      &.subject
+        color $color-highlight
+        font-size rem-calc(125px)
+        text-transform uppercase
+        white-space nowrap
+  footer
+    margin-top 4.75rem
+    font-family "Pontano Sans", sans-serif
+    font-size rem-calc(35px)
+    color #fff
+
+.bespoke-slide.title
+  h1
+    margin 0
+    color $color-highlight
+    text-align center
+    font-size 1rem
+    .word // TODO make this a mixin
+      display inline-block
+      &::first-letter
+        font-size 1.2em
+        line-height 0
+
+.bespoke-slide
+  &.closing, &.definition
+    h2
+      margin 0
+      text-align center
+      font-size rem-calc(125px)
+      color $color-highlight
+      .word // TODO make this a mixin
+        display inline-block
+        &::first-letter
+          font-size 1.2em
+          line-height 0
+
+p.author
+  display flex
+  align-items center
+  justify-content center
+  font-weight bold
+  line-height 1.4
+  margin 0
+  .personname, .contact
+    flex 0 0 50%
+    span
+      display block
+  .personname
+    text-align right
+  .url::before
+    // NOTE match indent of @
+    content "@"
+    visibility hidden
+    user-select none
+  img.avatar
+    border rem-calc(5px) solid #fff
+    // 50% border-radius should work, but Webkit screws it up
+    border-radius 100%
+    //width 7rem
+    //height 7rem
+    width rem-calc(110px)
+    height rem-calc(110px)
+    margin 0 rem-calc(50px)
+    box-shadow #000 0 0 rem-calc(70px)
+
+figure.cover, figure.contain
+  position absolute
+  // NOTE Chrome leaves 0.5px space around image when using transform-based scaling; fix by setting positions to -1px
+  top 0
+  right 0
+  bottom 0
+  left 0
+  overflow hidden
+  img, object, svg
+    width 100%
+    height 100%
+    object-fit cover
+  span.alt
+    display flex
+    align-items center
+    justify-content center
+    height 100%
+  &.top
+    img, object, svg
+      object-position 50% 0
+
+figure.contain
+  img, object, svg
+    object-fit contain
+
+figure.image
+  figcaption
+    position absolute
+    left 0
+    bottom 0
+    width 100%
+    padding rem-calc(10px)
+    font-size rem-calc(50px)
+    background-color rgba(51, 51, 51, 0.95)
+    color #fff
+    text-align center
+    font-weight bold
+  &.dark figcaption
+    background-color rgba(255, 255, 255, 0.95)
+    color inherit
+    box-shadow #333 0 0 rem-calc(5px)
+  &.url figcaption
+    font-family monospace
+    font-size rem-calc(42px)
+  &.flux
+    img, object, svg
+      position absolute
+    .bespoke-active &
+      img:first-of-type, object:first-of-type, svg:first-of-type
+        animation 2s linear 0s infinite alternate image-flux
+        z-index 1
+  &.build-items img:not(.bespoke-bullet-current)
+    display none
+
+// FIXME combine styles for top-level h2
+.bespoke-slide.topic
+  background-color $color-accent
+  h2
+    font-size rem-calc(150px) // almost always overridden by fittext
+    text-transform uppercase
+    color rgba(0, 0, 0, 0.65)
+    margin 0 // QUESTION should we make this 0 5%?
+    code
+      text-transform none
+    strong
+      color $color-inverse
+      font-weight inherit
+
+.bespoke-slide.remark
+  h2
+    font-size rem-calc(150px) // almost always overridden by fittext
+    text-transform uppercase
+    color $color-muted
+    margin 0 // QUESTION should we make this 0 5%?
+    code
+      text-transform none
+    strong
+      color $color-accent
+      font-weight inherit
+  &.proper h2
+    text-transform none
+
+h2.fit
+  line-height 1.1
+  width $fit-width
+  //max-width $fit-width
+  white-space nowrap
+  //overflow-x hidden
+  span.line
+    margin $fit-line-margin
+    display table
+    // equivalent to...
+    //display block
+    //width fit-content
+    // can also use (but doesn't collapse margins)...
+    //display inline-block
+    //float left
+    //clear left
+
+ul.fit
+  list-style none
+  margin 0
+  padding 0
+  width $fit-width
+  //max-width $fit-width
+  white-space nowrap
+  font-size rem-calc(150px) // overridden by fittext
+  text-transform uppercase
+  color $color-muted
+  font-weight bold
+  li
+    display table
+    line-height 1.1
+    margin $fit-line-margin
+  strong
+    color $color-accent
+    font-weight inherit
+
+span.del
+  position relative
+  &::after
+    display block
+    content ""
+    position absolute
+    background-color rgba(255, 45, 82, 0.6)
+    height 0.1em
+    top 0.64em
+    left 0
+    width 100%
+
+.bespoke-slide.left
+  align-items flex-start
+  &.remark
+    h2
+      margin 0 5%
+      font-size rem-calc(140px)
+    span.line
+      display block
+      margin 0.4em 0
+
+.bespoke-slide.definition
+  h2
+    text-transform uppercase
+    white-space nowrap
+    &::after // TODO make this a mixin
+      display block
+      content ""
+      border-top 2px solid $color-inverse
+      border-bottom 2px solid $color-inverse
+      height 8px
+      width rem-calc(600px)
+      margin 3rem auto 2.5rem auto
+  p
+    color $color-inverse
+    font-family "Pontano Sans", sans-serif
+    font-size rem-calc(45px)
+    font-weight bold
+    margin 0
+  strong
+    color $color-accent
+    font-weight inherit
+
+.bespoke-slide.recap
+  background #ffff99 url(../images/ruled-paper-o.svg) no-repeat
+  font-family "Just Another Hand", fantasy
+  font-size rem-calc(65px)
+  align-items flex-start
+  padding 0 rem-calc(42px)
+  color #000
+  ul
+    list-style-image url(../images/icon-check-o.svg)
+    margin 0 0 0 rem-calc(80px)
+    padding 0
+    width 100%
+    text-transform uppercase
+    font-weight bold
+    font-style italic
+    letter-spacing 0.075em
+    li
+      line-height 1
+      //margin rem-calc(20px) 0
+      margin 1rem 0
+      padding 0 0 0 rem-calc(55px)
+
+pre
+  font-size rem-calc(25px)
+  margin 0
+  white-space pre-wrap
+  //width 70%
+  width rem-calc(950px)
+  //line-height 1.4
+
+//pre:not(.source), pre.source > code
+//  background-color #f8f8f8
+pre
+  background-color #f8f8f8
+
+pre > code
+  color inherit
+  display block
+  padding 0.5em
+  .hljs-section
+    color $color-accent
+  + code
+    margin-top -1em
+
+.colist
+  //width 70%
+  width rem-calc(950px)
+  font-size rem-calc(28px)
+  margin-top 1rem
+
+.conum[data-value]
+  display inline-block
+  background-color #333
+  border-radius 100%
+  text-align center
+  vertical-align text-top
+  font-size 12px
+  width 24px
+  height 24px
+  line-height 2
+  font-style normal
+  font-weight bold
+  font-family monospace
+  &, *
+    color #fff !important
+  + b
+    display none
+  &::after
+    content attr(data-value)
+  pre &
+    position relative
+    top -1px
+  .colist &
+    vertical-align 0.5em
+    margin-right 0.5em
+
+// TODO probably needs to be more well-defined
+.open.fill
+  display inherit
+  flex-direction inherit
+  justify-content inherit
+  align-items inherit
+  width 100%
+  height 100%
+
+figure.quote
+  margin 0 rem-calc(50px)
+  padding-left rem-calc(90px)
+
+blockquote
+  margin 0
+  font-family "PT Serif", serif
+  font-size rem-calc(60px)
+  font-style italic
+  p
+    line-height 1.9
+  p:first-of-type::before, p:last-of-type::after
+    position absolute
+    font-size 2em
+    line-height 0.75
+    color $color-accent
+  p:first-of-type::before
+    margin-left -0.5em
+    content open-quote
+  p:last-of-type::after
+    margin-left 0.05em
+    content close-quote
+  + figcaption
+    color $color-accent
+    font-size rem-calc(60px)
+    font-weight bold
+    text-align right
+    &::before
+      content $sym-dash-em
+      padding-right 0.25em
+
+p.credits
+  margin-top rem-calc(70px)
+  text-transform uppercase
+  color rgba(0, 0, 0, 0.65)
+  font-weight bold
+  //font-size rem-calc(19px)
+  font-size 1.1rem
+  font-family monospace
+  line-height 2
+  &::first-line
+    font-size 1.2em
+
+@keyframes image-flux
+  from
+    opacity 1
+  14.99%
+    opacity 1
+  15%
+    opacity 0
+  84.99%
+    opacity 0
+  85%
+    opacity 1
+  to
+    opacity 1
+
+.bespoke-overview
+  -ms-overflow-style none // hide visible scrollbar in IE 10+
+  &::-webkit-scrollbar { width: 0 } // hide visible scrollbar in WebKit
+  .bespoke-active
+    outline-color #aaa
+  // NOTE the built-in rule in bespoke-overview is being overrridden
+  .bespoke-bullet
+    opacity 1 !important
+  figure.image.build-items img:first-child
+    display inherit

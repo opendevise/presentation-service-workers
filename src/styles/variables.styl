@@ -1,0 +1,27 @@
+//rem-calc(value)
+//  ((u = unit(value)) is 'px') ? unit(round(value/16, 4), 'rem') : value
+
+// accounts for difference in resolution between original presentation (1366x768) and this one (1280x720)
+rem-calc(value)
+  ((u = unit(value)) is 'px') ? unit(round(value/16 * 0.93704246, 4), 'rem') : value
+
+$slide-width = 1280px
+$slide-height = 720px
+$slide-transition = opacity 200ms ease-in-out 200ms
+//$fit-width = 62.5%
+//$fit-width = 58.565%
+$fit-width = rem-calc(800px)
+//$fit-line-margin = 1.25rem 0
+$fit-line-margin = rem-calc(20px) 0
+$color-surface = #000
+$color-canvas = #fff
+$color-text = #333
+$color-muted = #666
+$color-accent = #ff2d52
+$color-inverse = #fff
+$color-highlight = #ffff99
+$sym-dblquote-left = "\201c"
+$sym-dblquote-right = "\201d"
+$sym-guillemet-left = "\00ab"
+$sym-guillemet-right = "\00bb"
+$sym-dash-em = "\2014"

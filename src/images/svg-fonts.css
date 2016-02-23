@@ -1,0 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Just+Another+Hand|Raleway:700);
+tspan {
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+}

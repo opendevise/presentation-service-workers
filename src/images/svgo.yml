@@ -1,0 +1,46 @@
+floatPrecision: 3
+plugins:
+  - removeDoctype
+  - removeXMLProcInst
+  - removeComments
+  - removeMetadata
+  - removeEditorsNSData
+  - cleanupAttrs
+  - minifyStyles
+  - convertStyleToAttrs
+  - cleanupIDs
+  - removeUselessDefs
+  - cleanupNumericValues
+  - cleanupListOfValues
+  - convertColors
+  - removeUnknownsAndDefaults
+  - removeNonInheritableGroupAttrs
+  - removeUselessStrokeAndFill
+  - cleanupEnableBackground
+  - removeHiddenElems
+  - removeEmptyText
+  - convertShapeToPath: false
+  - moveElemsAttrsToGroup
+  - moveGroupAttrsToElems
+  - collapseGroups
+  - convertPathData
+  - convertTransform
+  - removeEmptyAttrs
+  - removeEmptyContainers
+  - mergePaths: false
+  - removeUnusedNS
+  - sortAttrs: true
+  - removeTitle
+  - removeDesc
+  - removeDimensions
+  - removeAttrs:
+      attrs:
+        - 'word-spacing'
+        - 'letter-spacing'
+        # better to use Inkscape to remove ids intelligently
+        #- 'id'
+  - addClassesToSVGElement: false
+  - removeStyleElement: false
+js2svg:
+  pretty: true
+  indent: ''

@@ -1,0 +1,42 @@
+= Speaker Notes
+
+//tag::title[]
+Bonjour à tous !
+Je m'appelle Hubert Sablonnière.
+Je suis développeur Web chez INEAT conseil et aujourd'hui j'ai envie de vous parler de...
+//end::title[]
+
+//tag::jurassic-park[]
+...Jurassic Park.
+C'est un film que j'adore.
+Je peux encore entendre les cris dans mon cauchemars.
+
+Quand il est sorti en 1993, j'étais encore...
+//end::jurassic-park[]
+
+//tag::moi-en-1993[]
+...assez jeune, du coup j'y suis allé le weekend avec mes parents et à l'époque pour savoir dans quel ciné se joue le film et pour avoir :
+les horaires, la durée, le résumé...
+on allait le mercredi chez ce...
+//end::moi-en-1993[]
+
+//tag::bon-vieux-md-de-journaux[]
+...bon vieux marchand de journaux, et oui.
+//end::bon-vieux-md-de-journaux[]
+
+//tag::par-voiture[]
+Du coup, mes parents devaient se taper :
+un aller-retour
+le plus rapide c'était la voiture,
+le temps d'y aller, de payer la Voix du Nord et de revenir : environ 20min,
+et ce pour la modique somme de 5 francs seulement.
+22 ans plus tard...
+//end::par-voiture[]
+
+//tag::web-sexy[]
+...on est tous connectés
+Le Web a tout changé ou presque,
+je suis toujours fan de ciné et tous les mercredis matins, je vais consulter mon...
+//end::web-sexy[]
+
+//...
