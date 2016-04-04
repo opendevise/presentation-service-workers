@@ -156,7 +156,7 @@ Then, install the required dependencies:
  $ bundle && npm install
 
 NOTE: This presentation currently relies on the https://github.com/mojavelinux/asciidoctor-bespoke/tree/listing-builds[listing-builds branch] of the Asciidoctor Bespoke.js converter.
-Therefore, the `asciidoctor-bespoke` command must be invoked through `bundle exec` (which is how it is invoked by the Gulp build).
+As a result, the `asciidoctor-bespoke` command must be invoked through `bundle exec` (which is what the Gulp build does).
 
 Now you're all set to build the presentation!
 
