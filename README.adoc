@@ -1,7 +1,21 @@
 = Du Web hors-ligne et plus si affinités avec les Service Workers (based on Bespoke.js)
 Hubert Sablonnière, Dan Allen
+// Metadata:
 :copyright: 2015-2016 Hubert Sablonnière, Dan Allen
+// Settings:
 :experimental:
+ifndef::env-github[]
+:icons: font
+endif::[]
+:idprefix:
+:idseparator: -
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
 // URIs:
 :uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
