@@ -1,6 +1,6 @@
 {
   "name": "presentation-service-workers",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A port of Hubert Sablonnière's DZSlides-based Service Workers presentation to Bespoke.js.",
   "author": "Dan Allen",
   "contributors": [
