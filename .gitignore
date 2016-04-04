@@ -1,4 +1,5 @@
 /Gemfile.lock
 /asciidoctor-bespoke
-/node_modules/
 /dist/
+/node_modules/
+/rubygems/
