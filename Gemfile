@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'asciidoctor', '~> 1.5.4'
-gem 'slim', '~> 3.0.6'
-gem 'thread_safe', '~> 0.3.5'
-#gem 'asciidoctor-bespoke', github: 'asciidoctor/asciidoctor-bespoke'
+#gem 'asciidoctor-bespoke', '1.0.0.alpha.1'
+# This presentation relies on the latest code from the following repository/branch
 gem 'asciidoctor-bespoke', github: 'mojavelinux/asciidoctor-bespoke', ref: 'listing-builds'
+# Or you can refer to a local clone of that repository/branch
 #gem 'asciidoctor-bespoke', path: 'asciidoctor-bespoke'
