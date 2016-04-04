@@ -113,16 +113,16 @@ This port improves on the original presentation in the following ways:
 == Known issues
 
 * The presentation is sized to 1280x720 instead of the original 1366x768, so it's not a pixel perfect copy.
-* Slide-to-slide transitions currently disabled pending refinement
+* Slide-to-slide transitions currently disabled pending refinement.
 * Raster images embedded in SVGs sometimes stop appearing in Chrome when the SVG is linked using the `<img>` element.
   - *Solution 1:* Restart your browser.
   - *Solution 2:* Link the SVG using `<object>` (add `opts=interactive` to block image macro in AsciiDoc source).
-* Flex layout on title slide jumps around in Firefox (words in h1 element are incorrectly distributed)
+* Flex layout on title slide jumps around in Firefox (words in h1 element are incorrectly distributed).
 * Presenter mode is not yet fully integrated (see <<Adding the presenter console>>).
-* Code annotations/callouts show up before the line to which it applies is revealed
+* Code annotations/callouts show up before the line to which it applies is revealed.
 It will be available by default once integration with https://github.com/opendevise/bespoke-onstage[bespoke-onstage] is complete.
 * Inkscape doesn't like some of the objects in the optimized SVGs, even though they display fine in the browser and image viewer.
-  - You must add the width and height attributes on the root `<svg>` element in order to save the file again in Inkscape
+  - You must add the width and height attributes on the root `<svg>` element in order to save the file again in Inkscape.
 
 == Building the presentation
 
