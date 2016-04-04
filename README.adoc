@@ -33,7 +33,7 @@ The CSS is generated from Stylus.
 SVGs have been optimized using svgo.
 The original presentation was based on a modified DZSlides and used Jade and Sass to produce the HTML and CSS, respectively.
 
-IMPORTANT: All rights have been reserved for images and diagrams in this presentation except where noted.
+IMPORTANT: All rights are reserved for images and diagrams in this presentation except where noted.
 You are, however, free to modify and remix the content and styles.
 
 WARNING: Startling audio automatically plays on slide #2 (a dinosaur roar).
