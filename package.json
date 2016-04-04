@@ -1,6 +1,17 @@
 {
   "name": "presentation-service-workers",
   "version": "1.1.0",
+  "description": "A port of Hubert Sablonnière's DZSlides-based Service Workers presentation to Bespoke.js.",
+  "author": "Dan Allen",
+  "contributors": [
+    {
+      "name": "Hubert Sablonnière"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opendevise/presentation-service-workers"
+  },
   "dependencies": {},
   "devDependencies": {
     "bespoke": "^1.1.0",
