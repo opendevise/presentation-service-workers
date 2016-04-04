@@ -36,7 +36,8 @@ The original presentation was based on a modified DZSlides and used Jade and Sas
 IMPORTANT: All rights are reserved for images and diagrams in this presentation except where noted.
 You are, however, free to modify and remix the content and styles.
 
-WARNING: Startling audio automatically plays on slide #2 (a dinosaur roar).
+WARNING: Dramatic audio (a dinosaur roar) automatically plays on slide #2.
+Adjust your volume accordingly.
 
 image::screenshot.jpg[Screenshot of slides in overview mode,link=https://opendevise.github.io/presentation-service-workers]
 
