@@ -20,7 +20,7 @@ include::speaker-notes.adoc[tag=title]
 
 == !
 image::jurassic-park-moz.png#jurassic-park.jpg[Jurassic Park roar,1920,1080,role=cover,opts=flux]
-audio::trex.ogg[alt=T. rex growl]
+audio::trex.ogg[alt=T. rex growl,opts=rewind]
 
 [.cue]
 ****
@@ -453,7 +453,7 @@ self.addEventListener('fetch', function (event) {
 
 [.proper.remark%fit]
 == **X**ML**H**ttp**R**equest
-audio::buzzer.ogg[alt=Wrong answer buzzer]
+audio::buzzer.ogg[alt=Wrong answer buzzer,opts=rewind]
 
 == !
 [build-lines=1..5;6..7;8;9..12;13..15;16]

@@ -9,6 +9,7 @@ var isWebKit = 'webkitAppearance' in document.documentElement.style,
   classes = require('bespoke-classes'),
   fullscreen = require('bespoke-fullscreen'),
   hash = require('bespoke-hash'),
+  multimedia = require('bespoke-multimedia'),
   nav = require('bespoke-nav'),
   //onstage = require('bespoke-onstage'),
   overview = require('bespoke-overview'),
@@ -41,67 +42,7 @@ var isWebKit = 'webkitAppearance' in document.documentElement.style,
   //  '.build-items:not(.build) > *:not(.build-items):not(:first-child)'].join(', ')
   //),
   //onstage(),
-  function(deck) { // switch to using bespoke-multimedia 1.0.4 once available
-    var forEach = function(c, fn) {
-        Array.prototype.forEach.call(c, fn);
-      },
-      collectAudio = function(scope) {
-        return scope.querySelectorAll('audio');
-      },
-      playAudio = function(obj) {
-        try {
-          obj.currentTime = 0;
-          obj.play();
-        }
-        // suppress error thrown by PhantomJS
-        catch (e) {}
-      },
-      pauseAudio = function(obj) {
-        try {
-          obj.pause();
-        }
-        // suppress error thrown by PhantomJS
-        catch (e) {}
-      },
-      collectSvgs = function(scope) {
-        return scope.querySelectorAll('object[type="image/svg+xml"]');
-      },
-      activateSvg = function(obj) {
-        var svg = obj.contentDocument.documentElement;
-        if (svg.tagName === 'svg') {
-          // QUESTION should we wrap in try/catch?
-          svg.classList.add('active');
-        }
-        else {
-          // give the SVG a chance to load into the object
-          obj.onload = function() { if (deck.slides[deck.slide()].contains(this)) activateSvg(this); }
-        }
-      },
-      deactivateSvg = function(obj) {
-        // QUESTION should we wrap in try/catch?
-        obj.contentDocument.documentElement.classList.remove('active');
-      },
-      activateSvgs = function(slide) {
-        forEach(collectSvgs(slide), activateSvg);
-      },
-      deactivateSvgs = function(slide) {
-        forEach(collectSvgs(slide), deactivateSvg);
-      };
-    deck.on('activate', function(e) {
-      // NOTE e.preview is true when the overview is active
-      if (!e.preview) {
-        forEach(collectAudio(e.slide), playAudio);
-        activateSvgs(e.slide);
-      }
-    });
-    deck.on('deactivate', function(e) {
-      // NOTE e.preview is true when the overview is active
-      if (!e.preview) {
-        forEach(collectAudio(e.slide), pauseAudio);
-        deactivateSvgs(e.slide);
-      }
-    });
-  },
+  multimedia(),
   function(deck) { // TODO convert to bespoke-textfit(ter) (or bespoke-typefit(ter)) plugin
     // IMPORTANT we must defer until load event so all web fonts have a chance to load
     // if we used webfontloader (or something equivalent) we could invoke this sooner
