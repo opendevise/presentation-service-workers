@@ -2,10 +2,19 @@
 Hubert Sablonnière, Dan Allen
 :copyright: 2015-2016 Hubert Sablonnière, Dan Allen
 :experimental:
+// URIs:
+:uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke
+:uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
+:uri-bundler: http://bundler.io
+:uri-gulp: http://gulpjs.com
+:uri-nodejs: https://nodejs.org
+:uri-nvm: https://github.com/creationix/nvm
+:uri-ruby: https://www.ruby-lang.org
+:uri-rvm: http://rvm.io
 
-A port of Hubert Sablonnière's http://hsablonniere.com/talks[presentation on Service Workers] to Bespoke.js.
+A port of Hubert Sablonnière's http://hsablonniere.com/talks[presentation on Service Workers] to {uri-bespoke}[Bespoke.js].
 
-The HTML for this presentation is generated from AsciiDoc by the https://github.com/asciidoctor/asciidoctor-bespoke[Bespoke.js converter for Asciidoctor].
+The HTML for this presentation is generated from AsciiDoc by the {uri-asciidoctor-bespoke}[Bespoke.js converter for Asciidoctor].
 The CSS is generated from Stylus.
 SVGs have been optimized using svgo.
 The original presentation was based on a modified DZSlides and used Jade and Sass to produce the HTML and CSS, respectively.
@@ -106,15 +115,19 @@ It will be available by default once integration with https://github.com/opendev
 
 Ensure you have the following installed on your machine:
 
-. https://www.ruby-lang.org[Ruby] 2.x footnote:[We strongly recommend using http://rvm.io[RVM] to manage Ruby.]
-. http://bundler.io[Bundler]
+For Bespoke.js::
+. {uri-nodejs}[Node.js] >= 0.12 footnote:[We strongly recommend using {uri-nvm}[nvm] to manage Node.]
+. {uri-gulp}[Gulp] (command line interface only)
 
+ $ npm install -g gulp-cli
+
+For Asciidoctor::
+
+. {uri-ruby}[Ruby] >= 2 footnote:[We strongly recommend using {uri-rvm}[RVM] to manage Ruby.]
+. {uri-bundler}[Bundler]
+
+ $ rvm use 2.3.0 --install # (optional)
  $ gem install bundler
-
-. https://nodejs.org[Node.js] footnote:[We strongly recommend using https://github.com/creationix/nvm[nvm] to manage Node.]
-. http://gulpjs.com[Gulp]
-
- $ npm install -g gulp
 
 === Setup
 
